@@ -8,7 +8,7 @@ if (-not $isAdmin) {
    return
 }
 
-# Define the URLs for the Amazon Root CA and the certificate
+# Define the URLs for the Amazon Root CA
 $amazonRootCAUrl = "https://www.amazontrust.com/repository/AmazonRootCA1.cer"
 $certificateUrl = "http://crt.r2m02.amazontrust.com/r2m02.cer"
 
@@ -29,14 +29,14 @@ try {
     $cert = New-Object System.Security.Cryptography.X509Certificates.X509Certificate2
     $cert.Import($targetDirectory)
 
-    $store = New-Object System.Security.Cryptography.X509Certificates.X509Store("MY", "CurrentUser") # Use "MY" for the personal store
+    $store = New-Object System.Security.Cryptography.X509Certificates.X509Store("Root", "CurrentUser")
     $store.Open("ReadWrite")
     $store.Add($cert)
     $store.Close()
     Write-Host "The certificate has been installed in the personal store of the current user."
 
     # Import the certificate into the machine store (LocalMachine)
-    $store = New-Object System.Security.Cryptography.X509Certificates.X509Store("MY", "LocalMachine") # Use "MY" for the personal store
+    $store = New-Object System.Security.Cryptography.X509Certificates.X509Store("MY", "LocalMachine")
     $store.Open("ReadWrite")
     $store.Add($cert)
     $store.Close()
