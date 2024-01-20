@@ -11,7 +11,7 @@ This script automates the installation of a certificate required for Unreal Engi
 
 #### 1. Download Certificates
 ```powershell
-# Define the URLs for the Amazon Root CA and the certificate
+# Define the URLs for the Amazon Root CA
 $amazonRootCAUrl = "https://www.amazontrust.com/repository/AmazonRootCA1.cer"
 $certificateUrl = "http://crt.r2m02.amazontrust.com/r2m02.cer"
 
