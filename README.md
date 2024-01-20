@@ -1,6 +1,4 @@
-# UnrealEngine_Dedicated_Server_Install_CA
-
-## Certificate Installation Script
+# UnrealEngine Dedicated Server Install Certificate Script
 
 This script automates the installation of a certificate required for Unreal Engine Dedicated Servers. Ensure that you have the necessary administrator privileges before running the script.
 
