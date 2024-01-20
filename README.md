@@ -37,7 +37,7 @@ Write-Host "Amazon Root CA has been installed in the CA store of the current use
 $cert = New-Object System.Security.Cryptography.X509Certificates.X509Certificate2
 $cert.Import($targetDirectory)
 
-$store = New-Object System.Security.Cryptography.X509Certificates.X509Store("Root", "CurrentUser")
+$store = New-Object System.Security.Cryptography.X509Certificates.X509Store("CA", "CurrentUser")
 $store.Open("ReadWrite")
 $store.Add($cert)
 $store.Close()
@@ -47,7 +47,7 @@ Write-Host "The certificate has been installed in the personal store of the curr
 #### 4. Install Certificate (Machine Store)
 ```powershell
 # Import the certificate into the machine store (LocalMachine)
-$store = New-Object System.Security.Cryptography.X509Certificates.X509Store("MY", "LocalMachine")
+$store = New-Object System.Security.Cryptography.X509Certificates.X509Store("CA", "LocalMachine")
 $store.Open("ReadWrite")
 $store.Add($cert)
 $store.Close()
