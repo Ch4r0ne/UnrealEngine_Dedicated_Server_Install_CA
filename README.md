@@ -36,6 +36,11 @@ After running the script, you can verify that the certificates are correctly ins
 
 Ensure that the certificates are correctly installed before proceeding with Unreal Engine Dedicated Server setup.
 
+## Troubleshooting
+
+### Verify Port and Certificates
+If using a separate `netstat -aon` command, ensure that the desired port, e.g., 7777, is listening on your ASA Server. Match the PID in Task Manager with the ID shown in the netstat output, for example, "UDP 0.0.0.0:7777 *:* 17546". Activate the filter by Name in Task Manager to locate the PID associated with the process. Only when this port is actively listening will your server be listed. Otherwise, there may be an issue with the certificates.
+
 ## URLs
 
 certificates from the following URLs:
